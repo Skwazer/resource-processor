@@ -1,11 +1,11 @@
 dependencies {
-    implementation 'org.apache.tika:tika-core:2.4.1'
-    implementation 'org.apache.tika:tika-parsers:2.4.1'
-    implementation 'com.epam.song-service:interface:0.0.1'
-    implementation 'org.apache.tika:tika-parser-audiovideo-module:2.4.1'
-    implementation 'org.springframework.boot:spring-boot-starter-amqp'
     implementation 'com.epam.resource-service:client:0.0.1-SNAPSHOT'
     implementation 'com.epam.song-service:client:0.0.1'
+    implementation 'com.epam.song-service:interface:0.0.1'
+    implementation 'org.apache.tika:tika-core:2.4.1'
+    implementation 'org.apache.tika:tika-parsers:2.4.1'
+    implementation 'org.apache.tika:tika-parser-audiovideo-module:2.4.1'
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
     implementation 'org.springframework.retry:spring-retry'
     implementation 'org.springframework:spring-aspects'
 }
