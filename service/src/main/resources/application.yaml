@@ -1,0 +1,29 @@
+server:
+  port: 8086
+spring:
+  rabbitmq:
+    retry:
+      count: 2
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    queue:
+      create: Resources.Create
+      create_dead: Resources.Create.Dead
+      delete: Resources.Delete
+      delete_dead: Resources.Delete.Dead
+resource:
+  service:
+    connect:
+      timeout: 2000
+    read:
+      timeout: 2000
+    baseUrl: http://localhost:8087/resources
+song:
+  service:
+    connect:
+      timeout: 2000
+    read:
+      timeout: 2000
+    baseUrl: http://localhost:8088/songs
