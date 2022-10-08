@@ -9,9 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.web.client.RestTemplate;
 
-/**
- * @author www.epam.com
- */
+
 @Configuration
 @Import({com.epam.resourceservice.config.ClientConfig.class, com.epam.songservice.config.ClientConfig.class})
 public class ClientConfig {

@@ -18,9 +18,7 @@ import static com.epam.resourceprocessor.processor.MetadataProperty.RELEASE_YEAR
 import static com.epam.resourceprocessor.processor.MetadataProperty.TITLE;
 
 
-/**
- * @author www.epam.com
- */
+
 @Slf4j
 @Component
 public class SongMetadataProcessor {

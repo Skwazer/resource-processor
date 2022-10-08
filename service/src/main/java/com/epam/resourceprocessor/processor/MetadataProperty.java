@@ -1,8 +1,6 @@
 package com.epam.resourceprocessor.processor;
 
-/**
- * @author www.epam.com
- */
+
 public enum MetadataProperty {
     TITLE("dc:title"),
     ARTIST("xmpDM:artist"),

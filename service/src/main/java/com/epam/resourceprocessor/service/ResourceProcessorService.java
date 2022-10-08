@@ -9,9 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @author www.epam.com
- */
+
 @Service
 @Slf4j
 @RequiredArgsConstructor
