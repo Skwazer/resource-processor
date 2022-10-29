@@ -18,7 +18,6 @@ import static com.epam.resourceprocessor.processor.MetadataProperty.RELEASE_YEAR
 import static com.epam.resourceprocessor.processor.MetadataProperty.TITLE;
 
 
-
 @Slf4j
 @Component
 public class SongMetadataProcessor {
@@ -51,12 +50,12 @@ public class SongMetadataProcessor {
     private String parseSongDuration(String stringDuration) {
         val durationInSeconds = stringDuration.substring(0, stringDuration.indexOf('.'));
         val intSeconds = Integer.parseInt(durationInSeconds);
-        var stringSeconds = String.valueOf(intSeconds%60);
-        if(stringSeconds.length() == 1) {
+        var stringSeconds = String.valueOf(intSeconds % 60);
+        if (stringSeconds.length() == 1) {
             stringSeconds = ZERO + stringSeconds;
         }
-        var stringMinutes =  String.valueOf(intSeconds/60);
-        if(stringMinutes.length() == 1) {
+        var stringMinutes = String.valueOf(intSeconds / 60);
+        if (stringMinutes.length() == 1) {
             stringMinutes = ZERO + stringMinutes;
         }
         return stringMinutes + TIME_DELIMITER + stringSeconds;

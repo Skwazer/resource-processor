@@ -1,11 +1,14 @@
 package com.epam.resourceprocessor.service;
 
 import com.epam.resourceprocessor.processor.SongMetadataProcessor;
-import com.epam.resourceservice.client.ResourceServiceClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -15,12 +18,16 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ResourceProcessorService {
 
-    private final ResourceServiceClient resourceServiceClient;
+    private final RestTemplate restTemplate;
     private final SongMetadataProcessor songMetadataProcessor;
     private final SongMetadataService songMetadataService;
 
+    @Value("${resource-service.name}")
+    private String serviceName;
+
     public void processResource(int id) {
-        val resourceBytes = resourceServiceClient.findResourceById(id);
+        ResponseEntity<ByteArrayResource> resourceBytes =
+                restTemplate.getForEntity("http://{serviceName}/resources/{id}", ByteArrayResource.class, serviceName, id);
         val metadata = songMetadataProcessor.processSongMetadata(resourceBytes.getBody());
         metadata.setResourceId((long) id);
         val storedMetadata = songMetadataService.storeSongMetadata(metadata);
