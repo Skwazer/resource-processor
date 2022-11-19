@@ -30,7 +30,7 @@ public class RMQConsumer {
         try {
             processorService.processResource(resourceId);
         } catch (Throwable ex) {
-            log.error("Error in processing message for resource id: " + id);
+            log.error("Error in processing message for resource id: " + id, ex);
             log.info("Publish to DEAD queue message for resource id: " + id);
             publisher.publishDeadCreateEvent(id);
         }
